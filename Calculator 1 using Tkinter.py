@@ -103,7 +103,10 @@ def equal():
     elif math == "multiplication":
         e.insert(0,i * int(n2))
     elif math == "division":
-        e.insert(0,i / int(n2))
+        try:
+            e.insert(0,i / int(n2))
+        except ZeroDivisionError:
+            e.insert(0,"Division by zero not possible.")
 
 b = Button(window, text = '=', width = 12, command = equal)
 b.place(x = 170, y = 300)
